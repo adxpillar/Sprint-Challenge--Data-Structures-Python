@@ -1,18 +1,20 @@
 class RingBuffer:
     def __init__(self, capacity):
         self.capacity = capacity
-        self.q = []
+        self.counter = 0
+        self.queue = []
 
     def append(self, item):
-        if len(self.q) < self.capacity:
-                self.q.append(item)
-                if len(self.q) == self.capacity:
-                    self.q.pop()
-                    self.q.append(item)
-                    
-                         
+        if len(self.queue) < self.capacity:
+            self.queue.append(item)
+            if len(self.queue) == self.capacity:
+                self.queue.pop()
+                self.queue.append(item)
+
+                
+        
     def get(self):
-        return self.q
+        return self.queue
 
 
 # A ring buffer is a non-growable buffer with a fixed size. When the ring buffer is 
