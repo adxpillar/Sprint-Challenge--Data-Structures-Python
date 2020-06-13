@@ -10,9 +10,7 @@ class RingBuffer:
             if len(self.queue) == self.capacity:
                 self.queue.pop()
                 self.queue.append(item)
-
                 
-        
     def get(self):
         return self.queue
 
@@ -25,3 +23,15 @@ class RingBuffer:
 
 
 
+# def sum_to(n):
+#     """ Return the sum of 1+2+3 ... n """
+#     ss  = 0
+#     v = 1
+#     while v <= n:
+#         ss = ss + v
+#         v = v + 1
+#     return ss
+
+# # For your test suite
+# test(sum_to(4) == 10)
+# test(sum_to(1000) == 500500)
