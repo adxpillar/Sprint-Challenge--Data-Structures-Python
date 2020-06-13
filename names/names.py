@@ -2,13 +2,21 @@ import time
 
 start_time = time.time()
 
-f = open('names_1.txt', 'r')
-names_1 = f.read().split("\n")  # List containing 10000 names
-f.close()
+# f = open('names_1.txt', 'r')
+# names_1 = f.read().split("\n")  # List containing 10000 names
+# f.close()
 
-f = open('names_2.txt', 'r')
-names_2 = f.read().split("\n")  # List containing 10000 names
-f.close()
+# f = open('names_2.txt', 'r')
+# names_2 = f.read().split("\n")  # List containing 10000 names
+# f.close()
+
+with open('names_1.txt','r') as n1, open('names_2.txt','r') as n2:
+    names_1 = n1.read().split("\n")
+    names_2 = n2.read().split("\n")
+    n1.close()
+    n2.close()
+
+
 
 duplicates = []  # Return the list of duplicates in this data structure
 
@@ -20,6 +28,9 @@ duplicates = []  # Return the list of duplicates in this data structure
 
 
 [duplicates.append(n) for n in names_1 if n in names_2]
+
+
+
 
 end_time = time.time()
 print (f"{len(duplicates)} duplicates:\n\n{', '.join(duplicates)}\n\n")
